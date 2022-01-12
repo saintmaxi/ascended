@@ -1,0 +1,159 @@
+
+
+
+.one {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.0s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.0s;
+  }
+  
+  .two {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.2s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.2s;
+  }
+  
+  .three {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.3s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.3s;
+  }
+  
+  @-webkit-keyframes dot {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+  
+  @keyframes dot {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+
+  #pending-transactions {
+    text-align: center;
+    min-width: 20%;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 99999999;
+  }
+  
+.loading-div {
+    cursor: pointer;
+    width: 100%;
+    text-decoration: none;
+    height: 5%;
+	background-color: rgba(95, 92, 92);
+    border: solid white .3em;
+    color: white;
+    font-size: .8vw;
+    line-height: 1.1vw;
+    padding: 20px;
+    text-align: center;
+}
+
+.etherscan-link {
+    text-decoration: none;
+}
+
+#error-popup, #status-popup {
+	background-color: rgba(95, 92, 92);
+    z-index: 99999;
+    position:fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 53vw;
+    height: 35vh;
+    border: solid .3em white;
+    border-radius: .2em;
+    text-align: center;
+    box-shadow: 0 0 5000px 5000px rgba(0,0,0,0.88);
+}
+
+#error-popup p, #status-popup p {
+    width: 100%;
+    font-size: 3vw;
+    line-height: 3vw;
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
+
+.blinking {
+    animation: blinker 1.6s linear infinite;
+}
+
+.success {
+    background-color: rgb(49, 219, 49) !important;
+	color: black !important;
+}
+
+.failure {
+    background-color: #F72119 !important;
+}
+
+#block-screen, #block-screen-error, #block-screen-status, #block-screen-approval {
+    z-index: 9998;
+    width: 100vw;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+}
+
+
+  @media screen and (max-width:767px) {
+
+    #pending-transactions {
+        min-width: 85%;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    
+      .loading-div {
+        font-size: 3vw !important;
+        line-height: 3.6vw !important;
+      }
+
+    #error-popup, #status-popup {
+        width: 75vw;
+        height: 15vh;
+    }
+
+    #error-popup p, #status-popup p {
+        font-size: 3vw !important;
+    }
+
+
+  }

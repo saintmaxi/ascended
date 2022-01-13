@@ -5604,6 +5604,10 @@ li {
   opacity: 0.75;
 }
 
+.image-29 {
+  margin-right: 4px;
+}
+
 .grid-11 {
   grid-column-gap: 60px;
   grid-row-gap: 60px;
@@ -5724,6 +5728,11 @@ li {
 }
 
 @media screen and (max-width: 991px) {
+
+  #twitter {
+    margin-right: 3px;
+  }
+
   h1 {
     font-size: 55px;
     line-height: 65px;
@@ -6622,8 +6631,8 @@ li {
   
   .increment-button {
     width: 20%;
-    font-size: calc(25px + 4vw) !important;
-    line-height: calc(25px + 4vw) !important;
+    font-size: calc(20px + 3.5vw) !important;
+    line-height: calc(25px + 3.5vw) !important;
     background-color: transparent;
   }
   

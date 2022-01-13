@@ -6630,7 +6630,7 @@ li {
   }
   
   .increment-button {
-    width: 20%;
+    width: initial;
     font-size: calc(20px + 3.5vw) !important;
     line-height: calc(25px + 3.5vw) !important;
     background-color: transparent;

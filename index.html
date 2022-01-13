@@ -44,7 +44,8 @@
       </nav>
       <a href="#" class="brand w-nav-brand"><img src="images/ASCENDED_LOGO-4-1.png" loading="lazy" width="216" sizes="216px" srcset="images/ASCENDED_LOGO-4-1-p-500.png 500w, images/ASCENDED_LOGO-4-1.png 871w" alt="" class="main-logo"></a>
       <nav role="navigation" class="nav-menu w-nav-menu">
-        <a href="https://twitter.com/AscendedNft" target="_blank" class="footer-link-2 _12"></a>
+        <a href="https://twitter.com/AscendedNft" target="_blank" class="footer-link-2 _12" id="twitter"></a>
+        <a href="https://opensea.io/Ascended_NFT" target="_blank" class="w-inline-block"><img src="images/Logomark-Transparent-White.png" loading="lazy" width="27" alt="" class="image-29"></a>
         <a href="https://discord.gg/EKCTrkSrv5" target="_blank" class="footer-link-2 _12 _0"></a>
         <a href="#" class="nav-link mobile-only w-nav-link">Get Started</a>
       </nav>
@@ -78,12 +79,12 @@
           <div class="margin">
             <h2 id="mint-header">Mint The Ascended<br></h2>
           </div>
-          <div id="mint-tools" class="hidden">
+          <div id="mint-tools">
             <p class="mint-info">
                <span id="num-minted">XXXX</span>/8888 Minted
             </p>
             <br>
-            <p class="mint-info"> Total Cost: <span id="current-cost">0.08</span> Ξ </p>
+            <p id="cost-div" class="mint-info"> Total Cost: <span id="current-cost">0.08</span> Ξ </p>
             <br class="hide-on-desktop">
             <p class="main-paragraph" id="quantity-controls">
                <button class="increment-button" id="mint-minus" onclick="decrementClaim();updatePrice();">⊖</button> 
@@ -92,8 +93,11 @@
                <button class="site-button w-button" id="max-button" onclick="setMaxMint()">SET TO MAX</button>
             </p>
             <br class="hide-on-desktop">
+           <p class="mint-info" id="whitelisted"></p>          
+
               <a href="#" class="site-button w-button" id="mint-button" onclick="mint()">MINT</a>
-         </div>          
+         </div>
+         <p class="mint-info hidden" id="mint-closed">Minting is currently closed!</p>          
         </div>
       </div>
       <a href="#" data-w-id="8818ae31-c972-8c33-e579-7169cad90215" style="opacity:0;-webkit-transform:translate3d(0, 0, 0) scale3d(0.95, 0.95, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0.95, 0.95, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0.95, 0.95, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0.95, 0.95, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="about-us-image w-inline-block w-lightbox"><img src="images/PlayIcon.svg" loading="lazy" alt="" class="image-28">

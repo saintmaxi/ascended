@@ -15,3 +15,15 @@ async function displayErrorMessage(message, timed=true) {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+const revealMintPrompt = async() => {
+    try {
+        await getAddress();
+        $("#info-block").addClass("hidden");
+        $("#mint-prompt").removeClass("hidden");
+    }
+    catch {
+        await displayErrorMessage("No wallet connected! Requesting...")
+        connect();
+    }
+}

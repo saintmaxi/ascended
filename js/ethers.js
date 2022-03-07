@@ -113,7 +113,7 @@ const checkMintingLive = async() => {
         $("#mint-closed").removeClass("hidden");
     }
     else {
-        if (!whitelistLive && publicLive) {
+        if (publicLive && whitelistLive) {
             $("#whitelisted").html('');
         }
         $("#mint-tools").removeClass("hidden");
@@ -181,8 +181,15 @@ const mint = async() => {
         if ((error.message).includes("Amount exceeds available for whitelist!")) {
             await displayErrorMessage(`Error: Max 4 mints for WL!`)
         }
+        else if ((error.message).includes("You are not Whitelisted")) {
+            await displayErrorMessage(`Error: You are not whitelisted!`)
+        }
+        else if ((error.message).includes("insufficient funds")) {
+            await displayErrorMessage(`Error: Insufficient ETH!`)
+        }
         else {
-            await displayErrorMessage("An error occurred. See console for details...")
+            await displayErrorMessage("An error occurred. See console and window alert for details...")
+            window.alert(error);
             console.log(error);
         }
     }
@@ -193,7 +200,7 @@ const updateMintInfo = async() => {
     let minted = Number(await ascended.totalSupply());
     $("#num-minted").text(minted);
     if (minted == 8888) {
-        $("#cost-div").html(`SOLD OUT<br><br>AVAILABLE ON <a href="https://opensea.io/Ascended_NFT" target="_blank" class="w-inline-block">OPENSEA</a>`);
+        $("#cost-div").html(`SOLD OUT<br><br>AVAILABLE ON <a href="https://opensea.io/collection/ascended-nft-official" target="_blank" class="w-inline-block">OPENSEA</a> & <a href="https://looksrare.org/collections/0x496299d8497A02b01f5Bc355298b0a831f06c522" target="_blank" class="w-inline-block">LOOKSRARE</a>`);
         $("#mint-button").remove();
         $("#quantity-controls").remove();
     }
@@ -291,8 +298,8 @@ ethereum.on("accountsChanged", async(accounts_)=>{
 
 window.onload = async()=>{
     await updateInfo();
-    await checkMintingLive();
     await checkWhitelistStatus();
+    await checkMintingLive();
     await updateMintInfo();
 };
 

@@ -119,7 +119,7 @@ const claimByIds = async()=>{
         const ascendedArray = Array.from(selectedForUnstaking);
         await aura.claimMany(ascendedArray).then( async(tx_) => {
             selectedForUnstaking = new Set();
-            $("#selected-for-unstaking").text("None");
+            $("#selected-for-unstaking").text("NONE");
             $(".active").removeClass("active");
             await waitForTransaction(tx_);
         }); 
@@ -135,7 +135,7 @@ const claimAll = async() => {
         const ascendedArray = await getAscendedOwned();
         await aura.claimMany(ascendedArray).then( async(tx_) => {
             selectedForUnstaking = new Set();
-            $("#selected-for-unstaking").text("None");
+            $("#selected-for-unstaking").text("NONE");
             $(".active").removeClass("active");
             await waitForTransaction(tx_);
         }); 
@@ -256,7 +256,7 @@ async function selectForUnstaking(id) {
         $(`#ascended-${id}`).removeClass("active");
     }
     if (selectedForUnstaking.size == 0) {
-        $("#selected-for-unstaking").text("None");
+        $("#selected-for-unstaking").text("NONE");
         $("#aura-to-claim").html(`$<img src="${auraImgURL}" class="aura-icon"> to Claim: 0`);
     }
     else {

@@ -135,6 +135,7 @@ h3 {
 .your-ascended {
     width: 15%;
     font-size: 1.3vw;
+    line-height: 1.8vw;
     margin: 10px;
     transition: transform ease 300ms;
 }
@@ -178,7 +179,6 @@ h3 {
 }
 
 .your-ascended .aura-icon {
-    margin-bottom: .2vw;
     margin-left: .2vw;
 }
   
@@ -379,7 +379,6 @@ h3 {
         border: none;
         width: 3vh;
         margin: 0;
-        margin-bottom: 2px;
         margin-left: 4px;
     }
 

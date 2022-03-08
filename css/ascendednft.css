@@ -556,8 +556,6 @@ li {
 }
 
 .section.alt.bottom-padding.city {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('../images/pexels-essow-936722.jpg');
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/pexels-essow-936722.jpg');
   background-position: 0px 0px, 0px 0px;
   background-size: auto, cover;
   color: #fff;
@@ -608,8 +606,6 @@ li {
   padding-top: 150px;
   padding-bottom: 150px;
   background-color: #111b40;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(17, 27, 64, 0.8)), to(rgba(17, 27, 64, 0.8))), url('../images/pexels-sourav-mishra-1309644.jpg');
-  background-image: linear-gradient(180deg, rgba(17, 27, 64, 0.8), rgba(17, 27, 64, 0.8)), url('../images/pexels-sourav-mishra-1309644.jpg');
   background-position: 0px 0px, 50% 50%;
   background-size: auto, cover;
   color: #fff;
@@ -617,8 +613,6 @@ li {
 
 .section.blue-copy.bottom-padding {
   padding-bottom: 100px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('../images/pexels-yaroslav-shuraev-1834399.jpg');
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/pexels-yaroslav-shuraev-1834399.jpg');
   background-position: 0px 0px, 50% 50%;
   background-size: auto, cover;
   color: #fff;
@@ -638,8 +632,6 @@ li {
 
 .section.cta.bottom-padding {
   padding-bottom: 100px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('../images/pexels-yaroslav-shuraev-1834399.jpg');
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/pexels-yaroslav-shuraev-1834399.jpg');
   background-position: 0px 0px, 50% 50%;
   background-size: auto, cover;
   color: #fff;
@@ -744,7 +736,6 @@ li {
   height: 600px;
   margin-right: auto;
   margin-left: auto;
-  background-image: url('../images/pexels-sourav-mishra-1309644.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -752,22 +743,6 @@ li {
 .image.limit {
   max-width: 500px;
   margin-bottom: 35px;
-}
-
-.image.about-1 {
-  background-image: url('../images/5febdf074df428cab39421c8_img_1.jpg');
-}
-
-.image.about2 {
-  background-image: url('../images/5ffba992a79f64242f541934_img_hero_2.jpg');
-}
-
-.image._2 {
-  background-image: url('../images/RCXCapitalGroupLogoAIFINALWebsite.png'), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('../images/pexels-alex-qian-2304917.jpg');
-  background-image: url('../images/RCXCapitalGroupLogoAIFINALWebsite.png'), linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/pexels-alex-qian-2304917.jpg');
-  background-position: 50% 50%, 0px 0px, 50% 50%;
-  background-size: 400px, auto, cover;
-  background-repeat: no-repeat, repeat, repeat;
 }
 
 .slide-nav {
@@ -1295,10 +1270,6 @@ li {
   border-radius: 5px;
   -o-object-fit: cover;
   object-fit: cover;
-}
-
-.hero-image.about-us {
-  background-image: url('../images/5fd1213f80de491ee669ef34_lawyer-briefcase.jpg');
 }
 
 .hero-image._2 {
@@ -3224,7 +3195,6 @@ li {
   margin-right: 50px;
   margin-left: 50px;
   border-radius: 8px;
-  background-image: url('../images/pexels-guillaume-meurice-1894350.jpg');
   background-position: 50% 50%;
   background-size: cover;
   -webkit-transform: skew(-8deg, 0deg);
@@ -3464,7 +3434,6 @@ li {
 
 .div-block-23 {
   margin-bottom: 35px;
-  background-image: url('../images/submitted-form-pic-desktop-with-logo.png');
   background-position: 0px 0px;
   background-size: cover;
 }
@@ -3559,7 +3528,6 @@ li {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: url('../images/pexels-sam-kolder-2387873.jpg');
   background-position: 50% 50%;
   background-size: cover;
   box-shadow: 1px 1px 50px 0 rgba(0, 0, 0, 0.1);
@@ -3642,14 +3610,6 @@ li {
   grid-template-rows: auto;
 }
 
-.image-17 {
-  height: 500px;
-  margin-bottom: 50px;
-  background-image: url('../images/Optimized-Quartet_playing.jpg');
-  background-position: 50% 50%;
-  background-size: auto;
-}
-
 .image-18 {
   max-width: 500px;
   margin-right: auto;
@@ -3691,50 +3651,6 @@ li {
 
 .bio-card._3 {
   margin-top: 0px;
-}
-
-.bio-image {
-  height: 400px;
-  background-image: url('../images/pexels-guillaume-meurice-1894350.jpg');
-  background-position: 50% 50%;
-  background-size: cover;
-}
-
-.bio-image.bobby {
-  background-image: url('../images/Optimized-Bobby-min.jpg');
-  background-position: 40% 50%;
-  background-size: cover;
-}
-
-.bio-image.bobby.big {
-  height: 600px;
-}
-
-.bio-image.kristin {
-  background-image: url('../images/Optimized-Kristin-min.jpg');
-  background-size: cover;
-}
-
-.bio-image.kristin.big {
-  height: 600px;
-}
-
-.bio-image.nicole {
-  background-image: url('../images/Optimized-Nicole-min.jpg');
-  background-size: cover;
-}
-
-.bio-image.nicole.big {
-  height: 600px;
-}
-
-.bio-image.melodie {
-  background-image: url('../images/Optimized-Mel-min.jpg');
-  background-size: cover;
-}
-
-.bio-image.melodie.big {
-  height: 600px;
 }
 
 .bio-info {
@@ -4120,22 +4036,8 @@ li {
   height: 100%;
   min-height: 400px;
   border-radius: 12px;
-  background-image: url('../images/slide-img-02.jpg');
   background-position: 50% 50%;
   background-size: cover;
-}
-
-.process-image._2 {
-  background-image: url('../images/Optimized-joel-wyncott-ylwijnko5mU-unsplash.jpg');
-}
-
-.process-image._3 {
-  background-image: url('../images/Optimized-sigmund-rMW9us4NCzU-unsplash.jpg');
-}
-
-.process-image._4 {
-  background-image: url('../images/Optimized-evelina-friman-hw_sKmjb0ns-unsplash.jpg');
-  background-position: 50% 100%;
 }
 
 .process-image._1 {
@@ -4215,37 +4117,6 @@ li {
 
 .bio-grid {
   grid-column-gap: 0px;
-  -ms-grid-rows: auto;
-  grid-template-rows: auto;
-}
-
-.bio-grid.bobby {
-  display: none;
-}
-
-.bio-grid.kristin {
-  display: none;
-  grid-auto-columns: 1fr;
-  -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: auto;
-  grid-template-rows: auto;
-}
-
-.bio-grid.nicole {
-  display: none;
-  grid-auto-columns: 1fr;
-  -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: auto;
-  grid-template-rows: auto;
-}
-
-.bio-grid.melodie {
-  display: none;
-  grid-auto-columns: 1fr;
-  -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
   -ms-grid-rows: auto;
   grid-template-rows: auto;
 }
@@ -6331,18 +6202,6 @@ li {
     grid-template-columns: 1fr 1fr;
   }
 
-  .bio-image.bobby.big {
-    height: 400px;
-  }
-
-  .bio-image.nicole.big {
-    height: 400px;
-  }
-
-  .bio-image.melodie.big {
-    height: 400px;
-  }
-
   .watch-our-concerts {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
@@ -6386,39 +6245,6 @@ li {
     grid-row-gap: 0px;
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
-  }
-
-  .bio-grid.bobby {
-    grid-auto-columns: 1fr;
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-    -ms-grid-rows: auto;
-    grid-template-rows: auto;
-  }
-
-  .bio-grid.kristin {
-    grid-auto-columns: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-    -ms-grid-rows: auto;
-    grid-template-rows: auto;
-  }
-
-  .bio-grid.nicole {
-    grid-row-gap: 0px;
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-  }
-
-  .bio-grid.melodie {
-    grid-auto-columns: 1fr;
-    grid-row-gap: 0px;
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-    -ms-grid-rows: auto;
-    grid-template-rows: auto;
   }
 
   .big-text-bg {
@@ -6973,18 +6799,6 @@ li {
   }
 
   .lightbox-link {
-    height: 300px;
-  }
-
-  .bio-image.bobby.big {
-    height: 300px;
-  }
-
-  .bio-image.nicole.big {
-    height: 300px;
-  }
-
-  .bio-image.melodie.big {
     height: 300px;
   }
 
@@ -7669,10 +7483,6 @@ li {
     margin-bottom: 40px;
     padding-right: 0px;
     padding-left: 0px;
-  }
-
-  .image-17 {
-    background-size: cover;
   }
 
   .about-grid {

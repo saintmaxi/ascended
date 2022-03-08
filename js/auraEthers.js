@@ -15,7 +15,7 @@ const auraAbi = () => {
 const etherscanBase = `https://etherscan.io/tx/`;
 const correctChain = 1;
 const baseImageURI = "https://api.nonfungiblecdn.com/ascendednft/images/";
-const auraImgURL = "https://www.spaceyetisnft.com/images/plasma.png";
+const auraImgURL = "https://github.com/saintmaxi/ascended/blob/main/images/aura_symbol.png?raw=true";
 
 /*********************************END CONFIG************************************/
 

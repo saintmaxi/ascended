@@ -27,3 +27,10 @@ const revealAuraLookup = async() => {
         connect();
     }
 }
+
+function clearPendingTxs() {
+    localStorage.removeItem("AuraPendingTxs");
+    localStorage.removeItem("AscendedPendingTxs");
+    pendingTransactions.clear();
+    location.reload();
+};

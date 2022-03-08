@@ -102,9 +102,9 @@ li {
 }
 
 #max-button, #lookup-button {
-  font-size: calc(25px + .5vw);
+  font-size: calc(15px + .5vw);
   padding: 1vw;
-  width:80%;
+  width:40%;
 }
 
 #max-button {

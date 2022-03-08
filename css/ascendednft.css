@@ -104,7 +104,7 @@ li {
 #max-button, #lookup-button {
   font-size: calc(25px + .5vw);
   padding: 1vw;
-  width:40%;
+  width:80%;
 }
 
 #max-button {

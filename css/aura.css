@@ -168,6 +168,7 @@ h3 {
   
 .your-ascended:hover {
     transform: translate(0, -5px);
+    cursor: pointer;
 }
 
 .your-ascended:hover .ascended-id, .your-ascended:hover .aura-earned {
@@ -291,6 +292,7 @@ h3 {
         font-size: 2.5vh !important;
         line-height: 2.5vh !important;
         height: 10vh;
+        margin-bottom: 3vh;
     }
 
     #aura-description {
@@ -349,7 +351,7 @@ h3 {
     }
 
     .stake-buttons button {
-        margin: 5px;
+        /* margin-bottom: 5px; */
         width: 95%;
     }
 

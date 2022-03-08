@@ -168,7 +168,7 @@ const getAscendedImages = async()=>{
             }
             let auraEarned = Number(formatEther(await aura.claimable(ascendedID))).toFixed(2);
 
-            batchFakeJSX += `<div id="ascended-${ascendedID}" class="your-ascended ${active}"><img onclick="selectForUnstaking(${ascendedID})" src="${baseImageURI}${ascendedID}"><p class="ascended-id">#${ascendedID}</p><p class="aura-earned"><span id="aura-earned-${ascendedID}">${auraEarned}</span><img src="${auraImgURL}" class="aura-icon"></p></div>`        
+            batchFakeJSX += `<div id="ascended-${ascendedID}" class="your-ascended ${active}" onclick="selectForUnstaking(${ascendedID})"><img src="${baseImageURI}${ascendedID}"><p class="ascended-id">#${ascendedID}</p><p class="aura-earned"><span id="aura-earned-${ascendedID}">${auraEarned}</span><img src="${auraImgURL}" class="aura-icon"></p></div>`        
             
         };
         $("#available-ascended-images").empty();
@@ -266,7 +266,7 @@ async function selectForUnstaking(id) {
             auraToClaim += Number(await getAuraEarnedByID(selectedForUnstakingArray[i]));
         }
         $("#aura-to-claim").html(`$<img src="${auraImgURL}" class="aura-icon"> to Claim: ${auraToClaim.toFixed(2)}`);
-        let selectedString = `${selectedForUnstakingArray.join(' ')}`;
+        let selectedString = `${selectedForUnstakingArray.join(', ')}`;
         $("#selected-for-unstaking").text(selectedString);
     }
 }

@@ -1,0 +1,107 @@
+
+#directory {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+}
+
+.directory-link {
+    width: 20%;
+    text-align: center;
+    font-size: 2vw;
+    line-height: 2vw;
+}
+
+.directory-link a {
+    color: white;
+}
+
+.directory-link a:hover {
+    color: #EBD5B9;
+}
+
+.active {
+    color: #EBD5B9 !important;
+}
+
+.spacer {
+    width: 10%;
+}
+
+.brand {
+    width: 30%;
+    text-align: center;
+}
+
+.main-logo {
+    width: 90%;
+}
+
+.navbar {
+    padding-top: 1.2vw !important;
+    padding-bottom: 1.2vw !important;
+}
+
+.nav-menu {
+    width: 25%;
+}
+
+.nav-menu a {
+    width: 25% !important;
+}
+
+.nav-menu a img {
+    width: 70%;
+}
+
+#account {
+    font-size: 1.6vw;
+    line-height: 1.6vw;
+    width: initial !important;
+}
+
+
+@media screen and (max-width: 767px) {
+
+    .nav-menu {
+        width: 70%;
+    }
+
+    .main-logo {
+        width: 60%;
+    }
+
+    #directory {
+        width: 100%;
+        display: inline-block;
+        padding-bottom: 10px;
+    }
+
+    .brand {
+        width: 100%;
+    }
+
+    .directory-link {
+        width: 49%;
+        text-align: center;
+        font-size: 4vh;
+        line-height: 4vh;
+        display: inline-block;
+    }
+
+    .nav-menu a, .nav-menu a img {
+        margin-right: 0 !important;
+    }
+
+    #account {
+        display: inline-block;
+        width: 100% !important;
+        font-size: 3vh;
+        line-height: 3vh;
+    }
+
+
+
+}

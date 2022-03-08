@@ -1,0 +1,403 @@
+:root {
+    --active-color: #B9394F;
+  }
+
+.main-footer {
+    background-color: black;
+}
+
+#mm-logo {
+    width: 2.4vw;
+}
+
+#aura-description {
+    margin:auto;
+    text-align: center;
+    font-family: 'Pixel';
+    width: 65%;
+    font-size: 1.4vw !important;
+    line-height: 1.6vw !important;
+}
+
+.button {
+    font-size: 1.3vw !important;
+    line-height: 1.3vw !important;
+    height: 5vw;
+}
+
+h2 {
+    font-size: 2.4vw !important;
+    line-height: 2.4vw !important;
+}
+
+h2, h3 {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+h3 {
+    font-size: 1.7vw !important;
+    line-height: 1.7vw !important;
+}
+
+#aura-balances {
+    width: 80vw;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #0A0A0A;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.aura-balance-container {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 45%;
+}
+
+.aura-balance-container button {
+    width: 75%;
+}    
+
+#your-aura-container {
+    margin-right: 2vw;
+}
+
+#your-ascended-section {
+    max-width: none;
+    width:80vw;
+    margin: auto;
+    text-align: center;
+    min-height:70vh;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    border-top: solid #EBD5B9 .1vw;
+
+}
+
+.staking-section {
+    width: 100%;
+}
+
+#available-ascended-images, #staked-ascended-images {
+	/* border: solid black .5vw; */
+	/* border-radius: 20px; */
+    border-top: solid #EBD5B9 .1vw;
+    overflow-y: scroll;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 30vh;
+}
+
+.your-ascended {
+    width: 15%;
+    font-size: 1.3vw;
+    margin: 10px;
+    transition: transform ease 300ms;
+}
+
+.your-ascended img {
+    border: solid black .5vw;
+	border-radius: 20px;
+    margin: 5px;
+    background-color: black;
+}
+
+.your-ascended .aura-icon {
+    border: none;
+    width: 1.5vw;
+    margin: 0;
+    background-color: transparent;
+}
+
+.your-ascended .aura-icon:hover {
+    border: none;
+}
+
+.ascended-id, .aura-earned {
+    color: #EBD5B9;
+    margin-bottom: 0px;
+    padding: 0 !important;
+    text-align: center;
+  }
+  
+.your-ascended:hover {
+    transform: translate(0, -5px);
+}
+
+.your-ascended:hover .ascended-id, .your-ascended:hover .aura-earned {
+    color: var(--active-color) !important;
+}
+
+.your-ascended:hover img {
+    border-color: var(--active-color);
+    cursor: pointer;
+}
+
+.your-ascended .aura-icon {
+    margin-bottom: .2vw;
+    margin-left: .2vw;
+}
+  
+.active img {
+    border-color: var(--active-color);
+}
+
+.selected {
+    color: #EBD5B9;
+}
+
+.active img, .active p{
+    border-color: var(--active-color);
+    color: var(--active-color) !important;
+}
+
+.ascended-id {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.one {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.0s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.0s;
+}
+  
+.two {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.2s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.2s;
+}
+  
+.three {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.3s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.3s;
+}
+  
+@-webkit-keyframes dot {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+  
+@keyframes dot {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.stake-buttons button {
+    width: 35%;
+}
+
+@media screen and (max-width: 991px) {
+
+    #mm-logo {
+        width: 4vh;
+    }
+
+    #aura-balances {
+        width: initial;
+    }
+
+    .button {
+        font-size: 2.5vh !important;
+        line-height: 2.5vh !important;
+        height: 10vh;
+    }
+
+    #aura-description {
+        margin:auto;
+        text-align: center;
+        width: 95%;
+        font-size: 2.5vh !important;
+        line-height: 2.9vh !important;
+    }
+
+    h2 {
+        font-size: 3.2vh !important;
+        line-height: 3.2vh !important; 
+    }
+
+    h3 {
+        font-size: 2.8vh !important;
+        line-height: 2.8vh !important;
+    }
+
+    .aura-balance-container {
+        width: 95vw;
+        border-bottom: solid #EBD5B9 .1vw;
+    }
+
+    .aura-balance-container h2 {
+        font-size: 3.2vh;
+        line-height: 3.2vh !important;
+    }    
+
+    .aura-balance-container button {
+        width: 95%;
+        font-size: 2.5vh;
+        padding: 20px;
+    }    
+
+    #your-aura-container {
+        margin-right: initial;
+    }
+
+    #your-aura, #claimable-aura {
+        font-size: 5vh;
+        line-height: 5vh;
+    }
+
+    .aura-balance-container .aura-icon {
+        width: 5vh;
+    }
+
+    #your-ascended-section {
+        width:95vw;
+        min-height: 0;
+        margin: auto;
+        display: block;
+        border: none;
+    }
+
+    .stake-buttons button {
+        margin: 5px;
+        width: 95%;
+    }
+
+    .staking-section {
+        width: 95%;
+        margin: 2.5%;
+    }
+
+    #staked-ascended-wrapper {
+        margin-top: 30px;
+    }
+
+    #available-ascended-images, #staked-ascended-images {
+        width: 100%;
+        height: 60vh;
+        text-align: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .box3 {
+        padding: 20px;
+    }
+
+    .your-ascended {
+        width: 41%;
+    }
+
+    .your-ascended img {
+        border-width: 5px;
+    }
+
+    .your-ascended .aura-icon {
+        border: none;
+        width: 3vh;
+        margin: 0;
+        margin-bottom: 2px;
+        margin-left: 4px;
+    }
+
+    .ascended-id, .aura-earned {
+          font-size: 3vh;
+          line-height: 3.2vh;
+    }
+
+    .active img {
+        border: solid 5px var(--active-color);;
+    }
+
+    .your-ascended:hover img {
+        border: solid 5px var(--active-color);;
+        cursor: pointer;
+    }
+
+    .your-ascended:hover .aura-icon {
+        border: none;
+    }
+}

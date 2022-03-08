@@ -16,7 +16,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const revealMintPrompt = async() => {
+const revealAuraLookup = async() => {
     try {
         await getAddress();
         $("#info-block").addClass("hidden");

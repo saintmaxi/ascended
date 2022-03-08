@@ -62,8 +62,34 @@
     width: initial !important;
 }
 
+#token-id {
+    width:40%;
+    font-size: 4vw;
+    line-height: 4vw;
+    text-align: center;
+    color: black;
+    margin-bottom: 2vw;
+}
+
+#pending-aura {
+    margin-bottom: 2vw;
+}
 
 @media screen and (max-width: 767px) {
+
+    #token-id {
+        width:80%;
+        font-size: 7vh;
+        line-height: 7vh;
+        text-align: center;
+        color: black;
+        height: 15vh;
+        margin-bottom: 3vh;
+    }
+
+    #pending-aura {
+        margin-bottom: 3vh;
+    }
 
     .nav-menu {
         width: 70%;

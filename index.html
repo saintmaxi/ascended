@@ -89,34 +89,23 @@
           <div class="margin">
             <h2>What are The Ascended?<br></h2>
           </div>
-          <p class="main-paragraph">Ascended is a collection of 8,888 unique randomly generated explorers who seek the strange, enigmatic power of the Masks. Join them as the venture into the surreal and supernatural world of Inmanis in search of them!<br><br><strong>Mint January 13th!</strong><br></p>
+          <p class="main-paragraph">Ascended is a collection of 8,888 unique randomly generated explorers who seek the strange, enigmatic power of the Masks. Join them as the venture into the surreal and supernatural world of Inmanis in search of them!</p>
           <div class="button-wrapper">
-            <a href="#" class="site-button w-button" onclick="revealMintPrompt()">MINT NOW</a>
+            <a href="#" class="site-button w-button" onclick="revealAuraLookup()">$AURA LOOKUP</a>
           </div>
         </div>
         <div id="mint-prompt" data-w-id="c4032594-3d6a-c836-ac57-e18b333f15e6" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-center hidden animate-pop">
           <div class="margin">
-            <h2 id="mint-header">Mint The Ascended<br></h2>
+            <h2 id="mint-header">$AURA LOOKUP TOOL<br></h2>
           </div>
-          <div id="mint-tools">
-            <p class="mint-info">
-               <span id="num-minted">XXXX</span>/8888 Minted
-            </p>
-            <br>
-            <p id="cost-div" class="mint-info"> Total Cost: <span id="current-cost">0.08</span> Ξ </p>
-            <br class="hide-on-desktop">
-            <p class="main-paragraph" id="quantity-controls">
-               <button class="increment-button" id="mint-minus" onclick="decrementClaim();updatePrice();">⊖</button> 
-               <span id="number-to-mint">1</span> 
-               <button class="increment-button" id="mint-plus" onclick="incrementClaim();updatePrice();">⊕</button><br>
-               <button class="site-button w-button" id="max-button" onclick="setMaxMint()">SET TO MAX</button>
-            </p>
-            <br class="hide-on-desktop">
-           <p class="mint-info" id="whitelisted"></p>          
-
-              <a href="#" class="site-button w-button" id="mint-button" onclick="mint()">MINT</a>
+          <input min=1 max=8888 type="number" id="token-id" placeholder="Token ID" value="">
+          <div>
+         <p class="mint-info" id="pending-aura"></p>          
+            <p class="main-paragraph">
+              <button id="lookup-button" class="site-button w-button" onclick="getAuraEarnedByID()">LOOK UP</button>
          </div>
-         <p class="mint-info hidden" id="mint-closed">Minting is currently closed!</p>          
+         <br>
+         <p class="mint-info">Enter a token ID to see how much unclaimed $AURA it has!</p>          
         </div>
       </div>
       <a href="#" data-w-id="8818ae31-c972-8c33-e579-7169cad90215" style="opacity:0;-webkit-transform:translate3d(0, 0, 0) scale3d(0.95, 0.95, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0.95, 0.95, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0.95, 0.95, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0.95, 0.95, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="about-us-image w-inline-block w-lightbox"><img src="images/PlayIcon.svg" loading="lazy" alt="" class="image-28">

@@ -52,8 +52,8 @@ h2 {
 h3 {
   margin-top: 0px;
   margin-bottom: 12px;
-  font-size: 24px;
-  line-height: 1.2em;
+  font-size: 1.5vw !important;
+  line-height: 1.8vw;
   letter-spacing: -0.3px;
 }
 
@@ -101,7 +101,7 @@ li {
   line-height: calc(25px + 1vw);
 }
 
-#max-button, #mint-button {
+#max-button, #lookup-button {
   font-size: calc(25px + .5vw);
   padding: 1vw;
   width:40%;
@@ -325,8 +325,10 @@ li {
 
 .main-paragraph {
   margin-bottom: 0px;
-  font-size: 22px;
-  line-height: 28px;
+  /* font-size: 22px;
+  line-height: 28px; */
+  font-size: 1.5vw !important;
+  line-height: 1.8vw;
 }
 
 .main-paragraph.big {
@@ -5111,8 +5113,8 @@ li {
 
 .role {
   margin-bottom: 16px;
-  font-size: 24px;
-  line-height: 24px;
+  font-size: 1.4vw;
+  line-height: 1.4vw;
 }
 
 .team-name {
@@ -5668,8 +5670,8 @@ li {
   border-radius: 8px;
   background-color: #fff;
   color: #000;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.5vw !important;
+  line-height: 1.8vw;
 }
 
 .history-item-line {
@@ -5799,10 +5801,10 @@ li {
     text-align: center;
   }
 
-  .main-paragraph.big {
+  .main-paragraph {
     margin-bottom: 0px;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 3vh !important;
+    line-height: 3.4vh !important;
   }
 
   .main-paragraph.big-copy {
@@ -6540,6 +6542,13 @@ li {
   .history-item {
     width: 100%;
     margin-left: 0px;
+    font-size: 3vh !important;
+    line-height: 3.4vh;
+  }
+
+  h3 {
+    font-size: 3.2vh !important;
+    line-height: 3.4vh;
   }
 
   .history-item-line {
@@ -6650,9 +6659,10 @@ li {
     margin-bottom: 0;
   }
   
-  #max-button, #mint-button {
+  #max-button, #lookup-button {
     font-size: calc(25px + .5vw);
     padding: 2.5vw;
+    width: 80%;
   }
   
   #max-button {

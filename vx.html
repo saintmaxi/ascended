@@ -101,6 +101,10 @@
             <h2 id="mintedCount"><span id="num-minted">-</span>/8888</h2>
          </div>
          <div class="modal-info">
+          <h2>Your $AURA</h2>
+          <h2><span id="aura-balance">-</span> <img src="https://github.com/saintmaxi/ascended/blob/main/images/aura_symbol.png?raw=true" class="aura-icon"></h2>
+       </div>
+         <div class="modal-info">
             <h2>Price</h2>
             <h2 id="totalMintPrice"><span id="current-cost">50</span> <img src="https://github.com/saintmaxi/ascended/blob/main/images/aura_symbol.png?raw=true" class="aura-icon"></h2>
          </div>
@@ -123,7 +127,8 @@
                <h2 id="whitelisted"></h2>
             </div>
             <div class="mint-info hidden" id="mint-closed" style="text-align: center;">
-               <h2>Minting is currently closed!</h2>
+               <h2>Approve $AURA Spend before minting!</h2>
+               <button class="button" onclick="approveAuraToVX()">APPROVE</button>
             </div>
          </div>
       </div>

@@ -13,7 +13,7 @@
     align-items: center;
   }
 
-.modal-info h2 {
+.modal-info h2, #mint-closed h2 {
     font-size: 2.5vw;
     line-height: 3.2vw;
 }
@@ -98,11 +98,12 @@
 
 #max-button {
     width:25%;
+	height: 4vw;
 }
 
 #mint-button, #mint-n-stake-button, #claim-button {
 	height: 4vw;
-    width: 98%;
+    width: 75%;
     margin:0;
 }
 
@@ -151,7 +152,7 @@
 
 @media screen and (max-width: 767px) {
 
-    .modal-info h2 {
+    .modal-info h2, #mint-closed h2 {
         font-size: 3.7vh;
         line-height: 4.5vh;
     }

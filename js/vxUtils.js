@@ -73,7 +73,7 @@ function main() {
 
   {
     const gltfLoader = new THREE.GLTFLoader();
-    gltfLoader.load('https://metaslavs.mypinata.cloud/ipfs/QmQJXsXWegZwSJWU3XPBRbwwBjUBjudNUPy7e1LDovdXbk/965.gltf', (gltf) => {
+    gltfLoader.load('https://metaslavs.mypinata.cloud/ipfs/Qmc2fFjWeNFN9YTx2o2LssSY88NEV9DPkVeR9t2wD47uQS/155.gltf', (gltf) => {
       const root = gltf.scene;
       scene.add(root);
 

@@ -78,6 +78,8 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 #mint {
@@ -159,6 +161,8 @@
     #mint-container {
         height: initial;
         display: initial;
+        padding-top: 0px;
+        padding-bottom: 0px;
     }
 
     #mint {

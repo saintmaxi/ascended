@@ -1,0 +1,18 @@
+#c {
+    width: 30vw;
+    height: 30vw;
+    display: block;
+	border-radius: 20px;
+
+}
+
+@media screen and (max-width: 767px) {
+
+    #c {
+        width: 80vw;
+        height: 65vw;
+        display: block;
+        margin: auto;
+    }
+
+}

@@ -8,10 +8,10 @@
 }
 
 .directory-link {
-    width: 20%;
+    width: 15%;
     text-align: center;
-    font-size: 2vw;
-    line-height: 2vw;
+    font-size: 1.5vw;
+    line-height: 1.5vw;
 }
 
 .directory-link a {
@@ -103,6 +103,7 @@
         width: 100%;
         display: inline-block;
         padding-bottom: 10px;
+        text-align: center;
     }
 
     .brand {
@@ -110,7 +111,7 @@
     }
 
     .directory-link {
-        width: 49%;
+        width: 30%;
         text-align: center;
         font-size: 4vh;
         line-height: 4vh;

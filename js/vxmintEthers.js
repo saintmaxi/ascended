@@ -20,6 +20,7 @@
 // const priceEth = 50;
 // const openseaLink = "#";
 // const looksrareLink = "#";
+// const baseImageURI = "https://metaslavs.mypinata.cloud/ipfs/QmWZMXRUEV893tQwxjDBUjRKsHPM6Y1daGHDzYJYngUdaR/";
 
 /*********************************************************************************/
 /********************************DEV CONFIG********************************/
@@ -43,6 +44,7 @@ const priceWei = "50000000000000000000";
 const priceEth = 50;
 const openseaLink = "#";
 const looksrareLink = "#";
+const baseImageURI = "https://metaslavs.mypinata.cloud/ipfs/QmWZMXRUEV893tQwxjDBUjRKsHPM6Y1daGHDzYJYngUdaR/";
 
 /*********************************END CONFIG************************************/
 
@@ -145,6 +147,40 @@ const checkAuraApproved = async() => {
     }
 }
 
+const getVXEnum = async()=>{
+    let userAddress = await getAddress();
+    let totalVX = await vx.balanceOf(userAddress);
+    return totalVX;
+};
+
+const getVXOwned = async() => {
+    let userAddress = await getAddress();
+    let ownedVX = await vx.walletOfOwner(userAddress);
+    return [...ownedVX].sort((a, b) => a - b);
+}
+
+const getVXImages = async()=>{
+    $("#available-ascended-images").empty();
+    $("#available-ascended-images").append(`<br><h3>Loading<span class="one">.</span><span class="two">.</span><span class="three">.</span></h3>`);
+
+    const yourVXCount = await getVXEnum();
+    $("#your-vx-num").text(yourVXCount);
+    if (yourVXCount == 0) {
+        $("#available-ascended-images").empty();
+        $("#available-ascended-images").append("<br><h3>No VX available...</h3>");
+    }
+    else {
+        const yourVX = await getVXOwned();
+        let batchFakeJSX = "";
+        for (let i = 0; i < yourVX.length; i++) {
+            let vxID = yourVX[i];
+            batchFakeJSX += `<div id="ascended-${vxID}" class="your-ascended"><img src="${baseImageURI}${vxID}.png"><p class="ascended-id">#${vxID}</p></div>`        
+            
+        };
+        $("#available-ascended-images").empty();
+        $("#available-ascended-images").append(batchFakeJSX);
+    }
+}
 
 const mint = async() => {
     const auraApproved = await checkAuraApproved();
@@ -170,6 +206,7 @@ const mint = async() => {
                 await vx.mint(numberToMint, {gasLimit: newGasLimit}).then( async(tx_) => {
                     await waitForTransaction(tx_);
                     await getAuraBalance();
+                    await getVXImages();
                 });  
             }
         }
@@ -302,6 +339,7 @@ window.onload = async()=>{
     await checkAuraApproved();
     await updateMintInfo();
     await getAuraBalance();
+    await getVXImages();
 };
 
 window.onunload = async()=>{

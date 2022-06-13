@@ -25,7 +25,6 @@ const aura = new ethers.Contract(auraAddress, auraAbi(), signer);
 
 const connect = async()=>{
     await provider.send("eth_requestAccounts", []);
-    await revealMintPrompt();
 };
 
 const getAddress = async()=>{
@@ -43,7 +42,6 @@ const parseEther = (eth_)=>{
 const getChainId = async()=>{
     return await signer.getChainId()
 };
-
 
 const getAuraEarnedByID = async() => {
     try {
@@ -142,21 +140,44 @@ async function endLoading(tx, txStatus) {
 }
 
 setInterval(async()=>{
-    await updateInfo();
+    if (toggleInterval) {
+        await updateInfo();
+    }
 }, 5000)
 
 const updateInfo = async () => {
     let userAddress = await getAddress();
-    $("#account").text(`${userAddress.substr(0,9)}..`);
+    if (userAddress) {
+        $("#account").text(`${userAddress.substr(0,9)}..`);
+        $("#mobile-account").text(`${userAddress.substr(0,9)}...`);
+    }
 };
 
 ethereum.on("accountsChanged", async(accounts_)=>{
-    location.reload();
+    // location.reload();
 });
 
+let toggleInterval;
+
 window.onload = async()=>{
-    await updateInfo();
+    let gamestopProvider = await detectGamestopProvider();
+    if (gamestopProvider) {
+        console.log("gamestop detected");
+        if (window.gamestop.currentAddress) {
+            toggleInterval = true;
+            await updateInfo();
+        }
+        else {
+            toggleInterval = false;
+        }
+    }
+    else {
+        console.log("gamestop not detected");
+        toggleInterval = true;
+        await updateInfo();
+    }
 };
+
 
 window.onunload = async()=>{
     cachePendingTransactions();

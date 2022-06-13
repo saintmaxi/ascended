@@ -18,7 +18,7 @@
 // const MAX_SUPPLY = 8888;
 // const priceWei = "50000000000000000000";
 // const priceEth = 50;
-// const openseaLink = "#";
+// const openseaLink = "https://opensea.io/collection/ascendedvx";
 // const looksrareLink = "#";
 // const baseImageURI = "https://metaslavs.mypinata.cloud/ipfs/QmWZMXRUEV893tQwxjDBUjRKsHPM6Y1daGHDzYJYngUdaR/";
 
@@ -331,15 +331,40 @@ const updateInfo = async () => {
 };
 
 ethereum.on("accountsChanged", async(accounts_)=>{
-    location.reload();
+    // location.reload();
 });
 
+let toggleInterval;
+
 window.onload = async()=>{
-    await updateInfo();
-    await checkAuraApproved();
-    await updateMintInfo();
-    await getAuraBalance();
-    await getVXImages();
+    let gamestopProvider = await detectGamestopProvider();
+    if (gamestopProvider) {
+        console.log("gamestop detected");
+        if (window.gamestop.currentAddress) {
+            toggleInterval = true;
+            await updateInfo();
+            if (pendingTransactions.size < 1) {
+                await checkAuraApproved();
+                await updateMintInfo();
+                await getAuraBalance();
+                await getVXImages();
+            }
+        }
+        else {
+            toggleInterval = false;
+        }
+    }
+    else {
+        console.log("gamestop not detected");
+        toggleInterval = true;
+        await updateInfo();
+        if (pendingTransactions.size < 1) {
+            await checkAuraApproved();
+            await updateMintInfo();
+            await getAuraBalance();
+            await getVXImages();
+        }
+    }
 };
 
 window.onunload = async()=>{

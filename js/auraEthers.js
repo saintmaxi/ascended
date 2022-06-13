@@ -329,9 +329,11 @@ async function endLoading(tx, txStatus) {
 }
 
 setInterval(async()=>{
-    await updateInfo();
-    await updateAuraEarned();
-    await getPendingAuraBalance();
+    if (toggleInterval) {
+        await updateInfo();
+        await updateAuraEarned();
+        await getPendingAuraBalance();
+    }
 }, 5000)
 
 const updateInfo = async () => {
@@ -341,13 +343,35 @@ const updateInfo = async () => {
 };
 
 ethereum.on("accountsChanged", async(accounts_)=>{
-    location.reload();
+    if (toggleInterval) {
+        location.reload();
+    }
 });
 
+let toggleInterval;
+
 window.onload = async()=>{
-    await updateInfo();
-    if (pendingTransactions.size < 1) {
-        await updateClaimingInfo();
+    let gamestopProvider = await detectGamestopProvider();
+    if (gamestopProvider) {
+        console.log("gamestop detected");
+        if (window.gamestop.currentAddress) {
+            toggleInterval = true;
+            await updateInfo();
+            if (pendingTransactions.size < 1) {
+                await updateClaimingInfo();
+            }
+        }
+        else {
+            toggleInterval = false;
+        }
+    }
+    else {
+        console.log("gamestop not detected");
+        toggleInterval = true;
+        await updateInfo();
+        if (pendingTransactions.size < 1) {
+            await updateClaimingInfo();
+        }
     }
 };
 

@@ -329,11 +329,26 @@ async function endLoading(tx, txStatus) {
 }
 
 setInterval(async()=>{
-    if (toggleInterval) {
+    let gamestopProvider = await detectGamestopProvider();
+    if (gamestopProvider) {
+        console.log("gamestop detected");
+        if (window.gamestop.currentAddress) {
+            toggleInterval = true;
+            await updateInfo();
+            await updateAuraEarned();
+            await getPendingAuraBalance();
+        }
+        else {
+            toggleInterval = false;
+        }
+    }
+    else {
+        console.log("gamestop not detected");
+        toggleInterval = true;
         await updateInfo();
         await updateAuraEarned();
         await getPendingAuraBalance();
-    }
+        }
 }, 5000)
 
 const updateInfo = async () => {

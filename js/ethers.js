@@ -60,7 +60,7 @@ function init() {
     if (gamestopProvider) {
         injectedName = "GameStop Wallet";
         injectedImg = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIxIDE4VjE5QzIxIDIwLjEgMjAuMSAyMSAxOSAyMUg1QzMuODkgMjEgMyAyMC4xIDMgMTlWNUMzIDMuOSAzLjg5IDMgNSAzSDE5QzIwLjEgMyAyMSAzLjkgMjEgNVY2SDEyQzEwLjg5IDYgMTAgNi45IDEwIDhWMTZDMTAgMTcuMSAxMC44OSAxOCAxMiAxOEgyMVpNMTIgMTZIMjJWOEgxMlYxNlpNMTYgMTMuNUMxNS4xNyAxMy41IDE0LjUgMTIuODMgMTQuNSAxMkMxNC41IDExLjE3IDE1LjE3IDEwLjUgMTYgMTAuNUMxNi44MyAxMC41IDE3LjUgMTEuMTcgMTcuNSAxMkMxNy41IDEyLjgzIDE2LjgzIDEzLjUgMTYgMTMuNVoiIGZpbGw9ImJsYWNrIj48L3BhdGg+Cjwvc3ZnPg=="
-        injectedMsg = "Connect with GameStop Wallet."
+        injectedMsg = "Connect with GameStop Wallet"
     }
     else {
         injectedName = "Injected";

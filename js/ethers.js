@@ -18,10 +18,6 @@ const auraImgURL = "https://github.com/saintmaxi/ascended/blob/main/images/aura_
 
 /*********************************END CONFIG************************************/
 
-// const provider = new ethers.providers.Web3Provider(window.ethereum,"any");
-// const signer = provider.getSigner();
-
-
 const getAddress = async() => { try { return await signer.getAddress(); } catch { return false; }}; 
 
 /** Credit to Web3Modal <3 */
@@ -32,10 +28,13 @@ const Fortmatic = window.Fortmatic;
 const ExampleProvider = window.ExampleProvider;
 const evmChains = window.evmChains;
 
-let web3Modal
+let web3Modal;
 let connection;
 let ethersProvider;
 let signer;
+
+let ascended;
+let aura;
 
 async function onConnect() {
 
@@ -44,6 +43,8 @@ async function onConnect() {
         connection = await web3Modal.connect();
         ethersProvider = new ethers.providers.Web3Provider(connection);
         signer = ethersProvider.getSigner();
+        ascended = new ethers.Contract(ascendedAddress, ascendedAbi(), signer);
+        aura = new ethers.Contract(auraAddress, auraAbi(), signer);
     }
     catch(e) {
         console.log("Could not get a wallet connection", e);
@@ -52,12 +53,23 @@ async function onConnect() {
 }
 
 function init() {
+    let injectedImg;
+    let injectedMsg;
+    if (gamestopProvider) {
+        injectedImg = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIxIDE4VjE5QzIxIDIwLjEgMjAuMSAyMSAxOSAyMUg1QzMuODkgMjEgMyAyMC4xIDMgMTlWNUMzIDMuOSAzLjg5IDMgNSAzSDE5QzIwLjEgMyAyMSAzLjkgMjEgNVY2SDEyQzEwLjg5IDYgMTAgNi45IDEwIDhWMTZDMTAgMTcuMSAxMC44OSAxOCAxMiAxOEgyMVpNMTIgMTZIMjJWOEgxMlYxNlpNMTYgMTMuNUMxNS4xNyAxMy41IDE0LjUgMTIuODMgMTQuNSAxMkMxNC41IDExLjE3IDE1LjE3IDEwLjUgMTYgMTAuNUMxNi44MyAxMC41IDE3LjUgMTEuMTcgMTcuNSAxMkMxNy41IDEyLjgzIDE2LjgzIDEzLjUgMTYgMTMuNVoiIGZpbGw9ImJsYWNrIj48L3BhdGg+Cjwvc3ZnPg=="
+        injectedMsg = "Connect with GameStop Wallet."
+    }
+    else {
+        injectedImg = "data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxyYWRpYWxHcmFkaWVudCBpZD0iYSIgY3g9IjEuODEzMTMyJSIgY3k9IjUwJSIgcj0iOTguMTg2ODY4JSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNDI0MjQyIi8+PHN0b3Agb2Zmc2V0PSIxIi8+PC9yYWRpYWxHcmFkaWVudD48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Im0yNTYgMGMxNDEuMzg0ODk2IDAgMjU2IDExNC42MTUxMDQgMjU2IDI1NiAwIDE0MS4zODQ4OTYtMTE0LjYxNTEwNCAyNTYtMjU2IDI1Ni0xNDEuMzg0ODk2IDAtMjU2LTExNC42MTUxMDQtMjU2LTI1NiAwLTE0MS4zODQ4OTYgMTE0LjYxNTEwNC0yNTYgMjU2LTI1NnoiIGZpbGw9InVybCgjYSkiLz48cGF0aCBkPSJtMTM3LjkwMjM0NCAyNDIuNzYxNzE5LTE1LjgyMDMxMyA1NS45NTcwMzFoLTE2LjY5OTIxOWwtMjIuMzgyODEyLTg0LjU1MDc4MWgxOC4zOTg0MzhsMTMuMTgzNTkzIDU5LjU4OTg0M2guOTM3NWwxNS40MTAxNTctNTkuNTg5ODQzaDE0Ljk0MTQwNmwxNS43MDMxMjUgNTkuNTg5ODQzaC45Mzc1bDEzLjA2NjQwNi01OS41ODk4NDNoMTguMjgxMjVsLTIyLjQ0MTQwNiA4NC41NTA3ODFoLTE2LjU4MjAzMWwtMTUuOTk2MDk0LTU1Ljk1NzAzMXptMTI3LjMyNDIxOCA0MC44Mzk4NDN2MTUuMTE3MTg4aC01Ni4wMTU2MjR2LTg0LjU1MDc4MWg1Ni4wMTU2MjR2MTUuMTE3MTg3aC0zOC4zMjAzMTJ2MTkuNzQ2MDk0aDM2LjE1MjM0NHYxNC4wMDM5MDZoLTM2LjE1MjM0NHYyMC41NjY0MDZ6bTU2LjYwMTU2MyAxNS4xMTcxODhoLTM3Ljk2ODc1di04NC41NTA3ODFoMzYuOTcyNjU2YzE2LjQwNjI1IDAgMjYuMTkxNDA3IDguMDI3MzQzIDI2LjE5MTQwNyAyMS4wOTM3NSAwIDguOTY0ODQzLTYuNjIxMDk0IDE2Ljc1NzgxMi0xNS4yOTI5NjkgMTguMDQ2ODc1djEuMDU0Njg3YzExLjE5MTQwNi44MjAzMTMgMTkuMzM1OTM3IDkuMjU3ODEzIDE5LjMzNTkzNyAyMC4xNTYyNSAwIDE0LjgyNDIxOS0xMS4xOTE0MDYgMjQuMTk5MjE5LTI5LjIzODI4MSAyNC4xOTkyMTl6bS0yMC4yNzM0MzctNzEuMDE1NjI1djIxLjUwMzkwNmgxMy4zMDA3ODFjOS41NTA3ODEgMCAxNC43NjU2MjUtMy45MjU3ODEgMTQuNzY1NjI1LTEwLjcyMjY1NiAwLTYuNzM4MjgxLTQuODYzMjgyLTEwLjc4MTI1LTEzLjMwMDc4Mi0xMC43ODEyNXptMCA1Ny40ODA0NjloMTUuNzYxNzE4YzEwLjE5NTMxMyAwIDE1LjcwMzEyNS00LjI3NzM0NCAxNS43MDMxMjUtMTIuMTg3NSAwLTcuNzM0Mzc1LTUuNjgzNTkzLTExLjgzNTkzOC0xNi4xMTMyODEtMTEuODM1OTM4aC0xNS4zNTE1NjJ6bTg0LjQzMzU5My0yMy4xNDQ1MzJ2LTEzLjE4MzU5M2gxMC4zMTI1YzguMDI3MzQ0IDAgMTMuNDc2NTYzLTQuNjg3NSAxMy40NzY1NjMtMTEuNjAxNTYzIDAtNi43OTY4NzUtNS4yNzM0MzgtMTEuMTMyODEyLTEzLjUzNTE1Ni0xMS4xMzI4MTItOC4yMDMxMjYgMC0xMy42NTIzNDQgNC42Mjg5MDYtMTQuMTIxMDk0IDExLjk1MzEyNWgtMTYuMzQ3NjU2Yy41ODU5MzctMTUuOTk2MDk0IDEyLjQ4MDQ2OC0yNi4wNzQyMTkgMzAuOTM3NS0yNi4wNzQyMTkgMTcuMzQzNzUgMCAyOS44MjQyMTggOS40OTIxODggMjkuODI0MjE4IDIyLjc5Mjk2OSAwIDkuNzg1MTU2LTYuMTUyMzQ0IDE3LjQwMjM0My0xNS41ODU5MzcgMTkuMzM1OTM3djEuMDU0Njg4YzExLjYwMTU2MiAxLjI4OTA2MiAxOC44NjcxODcgOS4wMjM0MzcgMTguODY3MTg3IDIwLjE1NjI1IDAgMTQuODI0MjE4LTEzLjk0NTMxMiAyNS41NDY4NzUtMzMuMjIyNjU2IDI1LjU0Njg3NS0xOC44NjcxODggMC0zMS42NDA2MjUtMTAuNDI5Njg4LTMyLjQwMjM0NC0yNi4zNjcxODhoMTYuOTMzNTk0Yy41MjczNDQgNy4xNDg0MzggNi41NjI1IDExLjY2MDE1NyAxNS42NDQ1MzEgMTEuNjYwMTU3IDguODQ3NjU3IDAgMTUtNC45ODA0NjkgMTUtMTIuMTg3NSAwLTcuMzgyODEzLTUuODAwNzgxLTExLjk1MzEyNi0xNS4yOTI5NjktMTEuOTUzMTI2eiIgZmlsbD0iI2ZmZiIvPjwvZz48L3N2Zz4=";
+        injectedMsg = "Connect with the provider in your browser";
+    }
     const providerOptions = {
         injected: {
             display: {
-              logo: "data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxyYWRpYWxHcmFkaWVudCBpZD0iYSIgY3g9IjEuODEzMTMyJSIgY3k9IjUwJSIgcj0iOTguMTg2ODY4JSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNDI0MjQyIi8+PHN0b3Agb2Zmc2V0PSIxIi8+PC9yYWRpYWxHcmFkaWVudD48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Im0yNTYgMGMxNDEuMzg0ODk2IDAgMjU2IDExNC42MTUxMDQgMjU2IDI1NiAwIDE0MS4zODQ4OTYtMTE0LjYxNTEwNCAyNTYtMjU2IDI1Ni0xNDEuMzg0ODk2IDAtMjU2LTExNC42MTUxMDQtMjU2LTI1NiAwLTE0MS4zODQ4OTYgMTE0LjYxNTEwNC0yNTYgMjU2LTI1NnoiIGZpbGw9InVybCgjYSkiLz48cGF0aCBkPSJtMTM3LjkwMjM0NCAyNDIuNzYxNzE5LTE1LjgyMDMxMyA1NS45NTcwMzFoLTE2LjY5OTIxOWwtMjIuMzgyODEyLTg0LjU1MDc4MWgxOC4zOTg0MzhsMTMuMTgzNTkzIDU5LjU4OTg0M2guOTM3NWwxNS40MTAxNTctNTkuNTg5ODQzaDE0Ljk0MTQwNmwxNS43MDMxMjUgNTkuNTg5ODQzaC45Mzc1bDEzLjA2NjQwNi01OS41ODk4NDNoMTguMjgxMjVsLTIyLjQ0MTQwNiA4NC41NTA3ODFoLTE2LjU4MjAzMWwtMTUuOTk2MDk0LTU1Ljk1NzAzMXptMTI3LjMyNDIxOCA0MC44Mzk4NDN2MTUuMTE3MTg4aC01Ni4wMTU2MjR2LTg0LjU1MDc4MWg1Ni4wMTU2MjR2MTUuMTE3MTg3aC0zOC4zMjAzMTJ2MTkuNzQ2MDk0aDM2LjE1MjM0NHYxNC4wMDM5MDZoLTM2LjE1MjM0NHYyMC41NjY0MDZ6bTU2LjYwMTU2MyAxNS4xMTcxODhoLTM3Ljk2ODc1di04NC41NTA3ODFoMzYuOTcyNjU2YzE2LjQwNjI1IDAgMjYuMTkxNDA3IDguMDI3MzQzIDI2LjE5MTQwNyAyMS4wOTM3NSAwIDguOTY0ODQzLTYuNjIxMDk0IDE2Ljc1NzgxMi0xNS4yOTI5NjkgMTguMDQ2ODc1djEuMDU0Njg3YzExLjE5MTQwNi44MjAzMTMgMTkuMzM1OTM3IDkuMjU3ODEzIDE5LjMzNTkzNyAyMC4xNTYyNSAwIDE0LjgyNDIxOS0xMS4xOTE0MDYgMjQuMTk5MjE5LTI5LjIzODI4MSAyNC4xOTkyMTl6bS0yMC4yNzM0MzctNzEuMDE1NjI1djIxLjUwMzkwNmgxMy4zMDA3ODFjOS41NTA3ODEgMCAxNC43NjU2MjUtMy45MjU3ODEgMTQuNzY1NjI1LTEwLjcyMjY1NiAwLTYuNzM4MjgxLTQuODYzMjgyLTEwLjc4MTI1LTEzLjMwMDc4Mi0xMC43ODEyNXptMCA1Ny40ODA0NjloMTUuNzYxNzE4YzEwLjE5NTMxMyAwIDE1LjcwMzEyNS00LjI3NzM0NCAxNS43MDMxMjUtMTIuMTg3NSAwLTcuNzM0Mzc1LTUuNjgzNTkzLTExLjgzNTkzOC0xNi4xMTMyODEtMTEuODM1OTM4aC0xNS4zNTE1NjJ6bTg0LjQzMzU5My0yMy4xNDQ1MzJ2LTEzLjE4MzU5M2gxMC4zMTI1YzguMDI3MzQ0IDAgMTMuNDc2NTYzLTQuNjg3NSAxMy40NzY1NjMtMTEuNjAxNTYzIDAtNi43OTY4NzUtNS4yNzM0MzgtMTEuMTMyODEyLTEzLjUzNTE1Ni0xMS4xMzI4MTItOC4yMDMxMjYgMC0xMy42NTIzNDQgNC42Mjg5MDYtMTQuMTIxMDk0IDExLjk1MzEyNWgtMTYuMzQ3NjU2Yy41ODU5MzctMTUuOTk2MDk0IDEyLjQ4MDQ2OC0yNi4wNzQyMTkgMzAuOTM3NS0yNi4wNzQyMTkgMTcuMzQzNzUgMCAyOS44MjQyMTggOS40OTIxODggMjkuODI0MjE4IDIyLjc5Mjk2OSAwIDkuNzg1MTU2LTYuMTUyMzQ0IDE3LjQwMjM0My0xNS41ODU5MzcgMTkuMzM1OTM3djEuMDU0Njg4YzExLjYwMTU2MiAxLjI4OTA2MiAxOC44NjcxODcgOS4wMjM0MzcgMTguODY3MTg3IDIwLjE1NjI1IDAgMTQuODI0MjE4LTEzLjk0NTMxMiAyNS41NDY4NzUtMzMuMjIyNjU2IDI1LjU0Njg3NS0xOC44NjcxODggMC0zMS42NDA2MjUtMTAuNDI5Njg4LTMyLjQwMjM0NC0yNi4zNjcxODhoMTYuOTMzNTk0Yy41MjczNDQgNy4xNDg0MzggNi41NjI1IDExLjY2MDE1NyAxNS42NDQ1MzEgMTEuNjYwMTU3IDguODQ3NjU3IDAgMTUtNC45ODA0NjkgMTUtMTIuMTg3NSAwLTcuMzgyODEzLTUuODAwNzgxLTExLjk1MzEyNi0xNS4yOTI5NjktMTEuOTUzMTI2eiIgZmlsbD0iI2ZmZiIvPjwvZz48L3N2Zz4=",
+            //   logo: "data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxyYWRpYWxHcmFkaWVudCBpZD0iYSIgY3g9IjEuODEzMTMyJSIgY3k9IjUwJSIgcj0iOTguMTg2ODY4JSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNDI0MjQyIi8+PHN0b3Agb2Zmc2V0PSIxIi8+PC9yYWRpYWxHcmFkaWVudD48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Im0yNTYgMGMxNDEuMzg0ODk2IDAgMjU2IDExNC42MTUxMDQgMjU2IDI1NiAwIDE0MS4zODQ4OTYtMTE0LjYxNTEwNCAyNTYtMjU2IDI1Ni0xNDEuMzg0ODk2IDAtMjU2LTExNC42MTUxMDQtMjU2LTI1NiAwLTE0MS4zODQ4OTYgMTE0LjYxNTEwNC0yNTYgMjU2LTI1NnoiIGZpbGw9InVybCgjYSkiLz48cGF0aCBkPSJtMTM3LjkwMjM0NCAyNDIuNzYxNzE5LTE1LjgyMDMxMyA1NS45NTcwMzFoLTE2LjY5OTIxOWwtMjIuMzgyODEyLTg0LjU1MDc4MWgxOC4zOTg0MzhsMTMuMTgzNTkzIDU5LjU4OTg0M2guOTM3NWwxNS40MTAxNTctNTkuNTg5ODQzaDE0Ljk0MTQwNmwxNS43MDMxMjUgNTkuNTg5ODQzaC45Mzc1bDEzLjA2NjQwNi01OS41ODk4NDNoMTguMjgxMjVsLTIyLjQ0MTQwNiA4NC41NTA3ODFoLTE2LjU4MjAzMWwtMTUuOTk2MDk0LTU1Ljk1NzAzMXptMTI3LjMyNDIxOCA0MC44Mzk4NDN2MTUuMTE3MTg4aC01Ni4wMTU2MjR2LTg0LjU1MDc4MWg1Ni4wMTU2MjR2MTUuMTE3MTg3aC0zOC4zMjAzMTJ2MTkuNzQ2MDk0aDM2LjE1MjM0NHYxNC4wMDM5MDZoLTM2LjE1MjM0NHYyMC41NjY0MDZ6bTU2LjYwMTU2MyAxNS4xMTcxODhoLTM3Ljk2ODc1di04NC41NTA3ODFoMzYuOTcyNjU2YzE2LjQwNjI1IDAgMjYuMTkxNDA3IDguMDI3MzQzIDI2LjE5MTQwNyAyMS4wOTM3NSAwIDguOTY0ODQzLTYuNjIxMDk0IDE2Ljc1NzgxMi0xNS4yOTI5NjkgMTguMDQ2ODc1djEuMDU0Njg3YzExLjE5MTQwNi44MjAzMTMgMTkuMzM1OTM3IDkuMjU3ODEzIDE5LjMzNTkzNyAyMC4xNTYyNSAwIDE0LjgyNDIxOS0xMS4xOTE0MDYgMjQuMTk5MjE5LTI5LjIzODI4MSAyNC4xOTkyMTl6bS0yMC4yNzM0MzctNzEuMDE1NjI1djIxLjUwMzkwNmgxMy4zMDA3ODFjOS41NTA3ODEgMCAxNC43NjU2MjUtMy45MjU3ODEgMTQuNzY1NjI1LTEwLjcyMjY1NiAwLTYuNzM4MjgxLTQuODYzMjgyLTEwLjc4MTI1LTEzLjMwMDc4Mi0xMC43ODEyNXptMCA1Ny40ODA0NjloMTUuNzYxNzE4YzEwLjE5NTMxMyAwIDE1LjcwMzEyNS00LjI3NzM0NCAxNS43MDMxMjUtMTIuMTg3NSAwLTcuNzM0Mzc1LTUuNjgzNTkzLTExLjgzNTkzOC0xNi4xMTMyODEtMTEuODM1OTM4aC0xNS4zNTE1NjJ6bTg0LjQzMzU5My0yMy4xNDQ1MzJ2LTEzLjE4MzU5M2gxMC4zMTI1YzguMDI3MzQ0IDAgMTMuNDc2NTYzLTQuNjg3NSAxMy40NzY1NjMtMTEuNjAxNTYzIDAtNi43OTY4NzUtNS4yNzM0MzgtMTEuMTMyODEyLTEzLjUzNTE1Ni0xMS4xMzI4MTItOC4yMDMxMjYgMC0xMy42NTIzNDQgNC42Mjg5MDYtMTQuMTIxMDk0IDExLjk1MzEyNWgtMTYuMzQ3NjU2Yy41ODU5MzctMTUuOTk2MDk0IDEyLjQ4MDQ2OC0yNi4wNzQyMTkgMzAuOTM3NS0yNi4wNzQyMTkgMTcuMzQzNzUgMCAyOS44MjQyMTggOS40OTIxODggMjkuODI0MjE4IDIyLjc5Mjk2OSAwIDkuNzg1MTU2LTYuMTUyMzQ0IDE3LjQwMjM0My0xNS41ODU5MzcgMTkuMzM1OTM3djEuMDU0Njg4YzExLjYwMTU2MiAxLjI4OTA2MiAxOC44NjcxODcgOS4wMjM0MzcgMTguODY3MTg3IDIwLjE1NjI1IDAgMTQuODI0MjE4LTEzLjk0NTMxMiAyNS41NDY4NzUtMzMuMjIyNjU2IDI1LjU0Njg3NS0xOC44NjcxODggMC0zMS42NDA2MjUtMTAuNDI5Njg4LTMyLjQwMjM0NC0yNi4zNjcxODhoMTYuOTMzNTk0Yy41MjczNDQgNy4xNDg0MzggNi41NjI1IDExLjY2MDE1NyAxNS42NDQ1MzEgMTEuNjYwMTU3IDguODQ3NjU3IDAgMTUtNC45ODA0NjkgMTUtMTIuMTg3NSAwLTcuMzgyODEzLTUuODAwNzgxLTExLjk1MzEyNi0xNS4yOTI5NjktMTEuOTUzMTI2eiIgZmlsbD0iI2ZmZiIvPjwvZz48L3N2Zz4=",
               name: "Injected",
-              description: "Connect with the provider in your Browser"
+            logo: injectedImg,
+              description: injectedMsg
             },
             package: null
           },
@@ -82,23 +94,11 @@ function init() {
     };
   
     web3Modal = new Web3Modal({
-      cacheProvider: false,
+      cacheProvider: true,
       providerOptions,
       disableInjectedProvider: false,
     });
 }
-
-
-const ascended = new ethers.Contract(ascendedAddress, ascendedAbi(), signer);
-const aura = new ethers.Contract(auraAddress, auraAbi(), signer);
-
-// const connect = async()=>{
-//     await provider.send("eth_requestAccounts", []);
-// };
-
-// const getAddress = async()=>{
-//     return await signer.getAddress()
-// };
 
 const formatEther = (balance_)=>{
     return ethers.utils.formatEther(balance_)
@@ -147,13 +147,6 @@ const updateCurrentChain = async() => {
     }
 }
 
-// provider.on("network", async(newNetwork, oldNetwork) => {
-//         if (oldNetwork) {
-//             $("#refresh-notification").remove();
-//             await updateCurrentChain();
-//         }
-//     });
-
 // Processing tx returns
 const waitForTransaction = async(tx_) => {
     startLoading(tx_);
@@ -173,7 +166,7 @@ else {
     pendingTxArray = Array.from(pendingTransactions);
     pendingTransactions = new Set();
 
-    for (let i =0; i < pendingTxArray.length; i++) {
+    for (let i = 0; i < pendingTxArray.length; i++) {
         waitForTransaction(pendingTxArray[i]);
     }
     localStorage.removeItem("AscendedPendingTxs");
@@ -209,9 +202,7 @@ async function endLoading(tx, txStatus) {
 }
 
 setInterval(async()=>{
-    if (toggleInterval) {
-        await updateInfo();
-    }
+    await updateInfo();
 }, 5000)
 
 const updateInfo = async () => {
@@ -226,29 +217,14 @@ ethereum.on("accountsChanged", async(accounts_)=>{
     // location.reload();
 });
 
-let toggleInterval;
+let gamestopProvider;
 
 window.onload = async()=>{
-    // let gamestopProvider = await detectGamestopProvider();
-    // if (gamestopProvider) {
-    //     console.log("gamestop detected");
-    //     if (window.gamestop.currentAddress) {
-    //         toggleInterval = true;
-    //         await updateInfo();
-    //     }
-    //     else {
-    //         toggleInterval = false;
-    //     }
-    // }
-    // else {
-    //     console.log("gamestop not detected");
-    //     toggleInterval = true;
-    //     await updateInfo();
-    // }
+    gamestopProvider = await detectGamestopProvider();
     init();
+    await onConnect();
+    await updateInfo();
     $("#account").attr("onclick", "onConnect()");
-    // document.querySelector("#b").addEventListener("click", onDisconnect);
-//   });
 };
 
 

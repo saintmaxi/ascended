@@ -336,27 +336,27 @@ async function selectForUnstaking(id) {
 // Processing tx returns
 const waitForTransaction = async(tx_) => {
     startLoading(tx_);
-    provider.once(tx_.hash, async (transaction_) => {
+    ethersProvider.once(tx_.hash, async (transaction_) => {
         await endLoading(tx_, transaction_.status);
     });
 };
 
 // Resuming UI display, refreshing market for pending txs across pages
-var pendingTransactions = localStorage.getItem("AuraPendingTxs");
+var pendingTransactions = new Set();
 
-if (!pendingTransactions) {
-    pendingTransactions = new Set();
-}
-else {
-    pendingTransactions = new Set(Array.from(JSON.parse(pendingTransactions)));
-    pendingTxArray = Array.from(pendingTransactions);
-    pendingTransactions = new Set();
+// if (!pendingTransactions) {
+//     pendingTransactions = new Set();
+// }
+// else {
+//     pendingTransactions = new Set(Array.from(JSON.parse(pendingTransactions)));
+//     pendingTxArray = Array.from(pendingTransactions);
+//     pendingTransactions = new Set();
 
-    for (let i =0; i < pendingTxArray.length; i++) {
-        waitForTransaction(pendingTxArray[i]);
-    }
-    localStorage.removeItem("AuraPendingTxs");
-}
+//     for (let i =0; i < pendingTxArray.length; i++) {
+//         waitForTransaction(pendingTxArray[i]);
+//     }
+//     localStorage.removeItem("AuraPendingTxs");
+// }
 
 function cachePendingTransactions() {
     localStorage.setItem("AuraPendingTxs", JSON.stringify(Array.from(pendingTransactions)));

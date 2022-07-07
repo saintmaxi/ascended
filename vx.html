@@ -44,7 +44,7 @@
   <div data-collapse="none" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
     <div class="full-container center w-container">
       <nav role="navigation" class="nav-menu left w-nav-menu">
-        <a href="#" class="site-button nav w-button" id="account" onclick="connect()">Connect</a>
+        <a href="#" class="site-button nav w-button" id="account" onclick="onConnect()">Connect</a>
         <a href="#" class="nav-link mobile-only w-nav-link">Sign In</a>
         <a href="#" class="nav-link mobile-only w-nav-link">Get Started</a>
       </nav>
@@ -110,7 +110,7 @@
          </div>
          <div class="modal-info">
             <h2>Max Per Transaction</h2>
-            <h2>10</h2>
+            <h2>20</h2>
          </div>
          <div>
             <p class="main-paragraph" id="quantity-controls">
@@ -127,8 +127,11 @@
                <h2 id="whitelisted"></h2>
             </div>
             <div class="mint-info hidden" id="mint-closed" style="text-align: center;">
+              <h2>Minting is currently paused!</h2>
+           </div>
+            <div class="mint-info hidden" id="approve-aura" style="text-align: center;">
                <h2>Approve $AURA Spend before minting!</h2>
-               <button class="button" onclick="approveAuraToVX()">APPROVE</button>
+               <button class="button" id="approval-button" onclick="approveAuraToVX()">APPROVE</button>
             </div>
          </div>
       </div>

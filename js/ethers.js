@@ -154,27 +154,27 @@ const updateCurrentChain = async() => {
 // Processing tx returns
 const waitForTransaction = async(tx_) => {
     startLoading(tx_);
-    provider.once(tx_.hash, async (transaction_) => {
+    ethersProvider.once(tx_.hash, async (transaction_) => {
         await endLoading(tx_, transaction_.status);
     });
 };
 
 // Resuming UI display, refreshing market for pending txs across pages
-var pendingTransactions = localStorage.getItem("AscendedPendingTxs");
+var pendingTransactions = new Set();
 
-if (!pendingTransactions) {
-    pendingTransactions = new Set();
-}
-else {
-    pendingTransactions = new Set(Array.from(JSON.parse(pendingTransactions)));
-    pendingTxArray = Array.from(pendingTransactions);
-    pendingTransactions = new Set();
+// if (!pendingTransactions) {
+//     pendingTransactions = new Set();
+// }
+// else {
+//     pendingTransactions = new Set(Array.from(JSON.parse(pendingTransactions)));
+//     pendingTxArray = Array.from(pendingTransactions);
+//     pendingTransactions = new Set();
 
-    for (let i = 0; i < pendingTxArray.length; i++) {
-        waitForTransaction(pendingTxArray[i]);
-    }
-    localStorage.removeItem("AscendedPendingTxs");
-}
+//     for (let i = 0; i < pendingTxArray.length; i++) {
+//         waitForTransaction(pendingTxArray[i]);
+//     }
+//     localStorage.removeItem("AscendedPendingTxs");
+// }
 
 function cachePendingTransactions() {
     localStorage.setItem("AscendedPendingTxs", JSON.stringify(Array.from(pendingTransactions)));

@@ -13,7 +13,7 @@
     align-items: center;
   }
 
-.modal-info h2, #mint-closed h2 {
+.modal-info h2, #mint-closed h2, #approve-aura h2 {
     font-size: 2.5vw;
     line-height: 3.2vw;
 }
@@ -152,7 +152,7 @@
 
 @media screen and (max-width: 767px) {
 
-    .modal-info h2, #mint-closed h2 {
+    .modal-info h2, #mint-closed h2, #approve-aura h2 {
         font-size: 3.7vh;
         line-height: 4.5vh;
     }

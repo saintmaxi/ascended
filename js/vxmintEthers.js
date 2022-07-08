@@ -214,14 +214,14 @@ const checkAuraApproved = async() => {
             $("#mint-closed").removeClass("hidden");
         }
         else {
-            $("#mint-button").removeClass("hidden");
             $("#quantity-controls").removeClass("hidden");
+            $("#mint-buttons").removeClass("hidden");
             $("#mint-closed").addClass("hidden");
         }
         return true;
     }
     else {
-        $("#mint-button").addClass("hidden");
+        $("#mint-buttons").addClass("hidden");
         $("#quantity-controls").addClass("hidden");
         $("#approve-aura").removeClass("hidden");
         return false;

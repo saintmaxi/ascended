@@ -20,7 +20,7 @@
 // const priceEth = 50;
 // const openseaLink = "https://opensea.io/collection/ascendedvx";
 // const looksrareLink = "#";
-// const baseImageURI = "https://api.nonfungiblecdn.com/ascendedvx/voxel//";
+// const baseImageURI = "https://api.nonfungiblecdn.com/ascendedvx/images/";
 
 /*********************************************************************************/
 /********************************DEV CONFIG********************************/
@@ -44,7 +44,7 @@ const priceWei = "50000000000000000000";
 const priceEth = 50;
 const openseaLink = "#";
 const looksrareLink = "#";
-const baseImageURI = "https://api.nonfungiblecdn.com/ascendedvx/voxel/";
+const baseImageURI = "https://api.nonfungiblecdn.com/ascendedvx/images/";
 
 /*********************************END CONFIG************************************/
 

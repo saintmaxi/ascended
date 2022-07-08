@@ -20,7 +20,7 @@
 // const priceEth = 50;
 // const openseaLink = "https://opensea.io/collection/ascendedvx";
 // const looksrareLink = "#";
-// const baseImageURI = "https://metaslavs.mypinata.cloud/ipfs/QmWZMXRUEV893tQwxjDBUjRKsHPM6Y1daGHDzYJYngUdaR/";
+// const baseImageURI = "https://api.nonfungiblecdn.com/ascendedvx/voxel//";
 
 /*********************************************************************************/
 /********************************DEV CONFIG********************************/
@@ -44,7 +44,7 @@ const priceWei = "50000000000000000000";
 const priceEth = 50;
 const openseaLink = "#";
 const looksrareLink = "#";
-const baseImageURI = "https://metaslavs.mypinata.cloud/ipfs/QmWZMXRUEV893tQwxjDBUjRKsHPM6Y1daGHDzYJYngUdaR/";
+const baseImageURI = "https://api.nonfungiblecdn.com/ascendedvx/voxel/";
 
 /*********************************END CONFIG************************************/
 
@@ -255,7 +255,7 @@ const getVXImages = async()=>{
         let batchFakeJSX = "";
         for (let i = 0; i < yourVX.length; i++) {
             let vxID = yourVX[i];
-            batchFakeJSX += `<div id="ascended-${vxID}" class="your-ascended"><img src="${baseImageURI}${vxID}.png"><p class="ascended-id">#${vxID}</p></div>`        
+            batchFakeJSX += `<div id="ascended-${vxID}" class="your-ascended"><img src="${baseImageURI}${vxID}"><p class="ascended-id">#${vxID}</p></div>`        
             
         };
         $("#available-ascended-images").empty();

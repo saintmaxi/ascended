@@ -14,7 +14,7 @@ const auraAbi = () => {
 
 const etherscanBase = `https://etherscan.io/tx/`;
 const correctChain = 1;
-const baseImageURI = "https://api.nonfungiblecdn.com/ascendednft/images/";
+const baseImageURI = "https://metaslavs.mypinata.cloud/ipfs/QmVojTjfmfGB4XiKV2c7MmoaApb3S4maZF31MpFQrPWqib/";
 const auraImgURL = "https://github.com/saintmaxi/ascended/blob/main/images/aura_symbol.png?raw=true";
 
 /*********************************END CONFIG************************************/
@@ -240,7 +240,7 @@ const getAscendedImages = async()=>{
             }
             let auraEarned = Number(formatEther(await aura.claimable(ascendedID))).toFixed(2);
 
-            batchFakeJSX += `<div id="ascended-${ascendedID}" class="your-ascended ${active}" onclick="selectForUnstaking(${ascendedID})"><img src="${baseImageURI}${ascendedID}"><p class="ascended-id">#${ascendedID}</p><p class="aura-earned"><span id="aura-earned-${ascendedID}">${auraEarned}</span><img src="${auraImgURL}" class="aura-icon"></p></div>`        
+            batchFakeJSX += `<div id="ascended-${ascendedID}" class="your-ascended ${active}" onclick="selectForUnstaking(${ascendedID})"><img src="${baseImageURI}${ascendedID}.png"><p class="ascended-id">#${ascendedID}</p><p class="aura-earned"><span id="aura-earned-${ascendedID}">${auraEarned}</span><img src="${auraImgURL}" class="aura-icon"></p></div>`        
             
         };
         $("#available-ascended-images").empty();

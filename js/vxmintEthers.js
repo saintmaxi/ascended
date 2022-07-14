@@ -410,10 +410,6 @@ const updateInfo = async () => {
     $("#mobile-account").text(`${userAddress.substr(0,9)}..`);
 };
 
-ethereum.on("accountsChanged", async(accounts_)=>{
-    // location.reload();
-});
-
 let gamestopProvider;
 
 window.onload = async()=>{

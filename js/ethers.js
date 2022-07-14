@@ -225,10 +225,6 @@ const updateInfo = async () => {
     }
 };
 
-ethereum.on("accountsChanged", async(accounts_)=>{
-    // location.reload();
-});
-
 let gamestopProvider;
 
 window.onload = async()=>{
